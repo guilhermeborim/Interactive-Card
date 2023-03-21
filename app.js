@@ -13,21 +13,21 @@ const compeleted = document.querySelector(".thank");
 const form = document.querySelector("form");
 
 function setCardNumber (evento) {
-    cardNumber.innerText = (evento.target.value);
+    cardNumber.innerText = format(evento.target.value);
 }
 
 function setCardName (evento) {
-    cardName.innerText = (evento.target.value)
+    cardName.innerText = format(evento.target.value)
 }
 
 function setCardMonth (evento) {
-    cardMonth.innerText = (evento.target.value)
+    cardMonth.innerText = format(evento.target.value)
 }
 function setCardYear (evento) {
-    cardYear.innerText = (evento.target.value)
+    cardYear.innerText = format(evento.target.value)
 }
 function setCardCvc (evento) {
-    cardCvc.innerText = (evento.target.value)
+    cardCvc.innerText = format(evento.target.value)
 }
 
 function handleSubmit(e) {
@@ -81,6 +81,9 @@ function handleSubmit(e) {
       form.classList.add("hidden");
     }
   
+}
+function format(s) {
+  return s.toString().replace(/\d{4}(?=.)/g, "$& ");
 }
 
 cvcInp.addEventListener('keyup', setCardCvc);
